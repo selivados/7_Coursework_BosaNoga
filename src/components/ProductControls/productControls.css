@@ -1,0 +1,11 @@
+.catalog-item-size {
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.catalog-item-size.selected {
+  background: #727e86;
+  border-radius: 15px;
+  color: #fff;
+}

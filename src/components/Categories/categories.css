@@ -1,0 +1,8 @@
+.catalog-categories {
+  font-size: 1.3rem;
+  margin-bottom: 2em;
+}
+
+ul li > span {
+  cursor: pointer;
+}

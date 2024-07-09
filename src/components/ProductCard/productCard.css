@@ -1,0 +1,17 @@
+.catalog-item-card {
+  margin-bottom: 1em;
+}
+
+.card-image-container {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 350px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+}
