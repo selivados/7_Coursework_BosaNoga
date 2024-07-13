@@ -1,6 +1,5 @@
 import { FC, useEffect } from "react";
 
-import { Preloader } from "../Preloader";
 import { categoriesState, fetchCategories } from "../../redux/slices/categoriesSlice";
 import { catalogState, setCategoryId } from "../../redux/slices/catalogSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
@@ -8,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import "./categories.css";
 
 export const Categories: FC = () => {
-  const { categories, loading, error } = useAppSelector(categoriesState);
+  const { categories, error } = useAppSelector(categoriesState);
   const { categoryId } = useAppSelector(catalogState);
   const dispatch = useAppDispatch();
 
@@ -24,7 +23,6 @@ export const Categories: FC = () => {
     dispatch(setCategoryId(id));
   };
 
-  if (loading) return <Preloader />
   if (error) return <h4 className="text-center text-danger">Error fetching categories</h4>;
   if (categories.length > 0) return (
     <ul className="catalog-categories nav justify-content-center">
