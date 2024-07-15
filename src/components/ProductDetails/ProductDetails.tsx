@@ -1,10 +1,12 @@
-import { FC, useEffect } from "react";
+import { FC, SyntheticEvent, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { Preloader } from "../Preloader";
 import { ProductControls } from "../ProductControls";
 import { fetchProduct, productState } from "../../redux/slices/productSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+
+import placeholderImage from "../../img/image-not-found.jpg";
 
 export const ProductDetails: FC = () => {
   const { products, loading, error } = useAppSelector(productState);
@@ -16,6 +18,10 @@ export const ProductDetails: FC = () => {
   useEffect(() => {
     dispatch(fetchProduct(id));
   }, []);
+
+  const onImageError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = placeholderImage;
+  }
 
   if (loading) return <Preloader />;
   if (error) return (
@@ -29,9 +35,10 @@ export const ProductDetails: FC = () => {
       <div className="row">
         <div className="col-5">
           <img
-            src={product.images[0]}
+            src={product.images[0] ? product.images[0] : placeholderImage}
             alt={product.title}
             className="img-fluid"
+            onError={onImageError}
           />
         </div>
         <div className="col-7">
