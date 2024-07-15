@@ -49,7 +49,7 @@ export const ProductControls: FC<IProductControlsProps> = (props) => {
     };
 
     dispatch(addToCart(productToAdd));
-    navigate('/cart');
+    navigate("/cart");
   }
 
   if (!sizes.length) return (

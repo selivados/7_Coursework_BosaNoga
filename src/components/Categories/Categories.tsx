@@ -23,7 +23,11 @@ export const Categories: FC = () => {
     dispatch(setCategoryId(id));
   };
 
-  if (error) return <h4 className="text-center text-danger">Error fetching categories</h4>;
+  if (error) return (
+    <h5 className="alert alert-danger text-center" role="alert">
+      Ошибка при получении списка категорий товаров
+    </h5>
+  );
   if (categories.length > 0) return (
     <ul className="catalog-categories nav justify-content-center">
       <li className="nav-item">

@@ -43,8 +43,18 @@ export const ProductsList: FC = () => {
   }
 
   if (loading && !loadingMore) return <Preloader />;
-  if (error) return <h4 className="text-center text-danger">Error fetching catalog products</h4>;
-  if (products.length > 0) return (
+  if (error) return (
+    <h5 className="alert alert-danger text-center" role="alert">
+      Ошибка при получении списка товаров
+    </h5>
+  );
+  if (products.length === 0) return (
+    <h5 className="alert alert-info text-center" role="alert">
+      По вашему запросу товаров не найдено
+    </h5>
+  );
+
+  return (
     <>
       <div className="row">
         {products.map((product) =>

@@ -18,7 +18,11 @@ export const ProductDetails: FC = () => {
   }, []);
 
   if (loading) return <Preloader />;
-  if (error) return <h4 className="text-center text-danger">Error fetching product</h4>
+  if (error) return (
+    <h5 className="alert alert-danger text-center mt-3" role="alert">
+      Ошибка при получении данных о товаре
+    </h5>
+  );
   if (products.length > 0) return (
     <section className="catalog-item">
       <h2 className="text-center">{product.title}</h2>

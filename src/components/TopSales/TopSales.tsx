@@ -14,12 +14,16 @@ export const TopSales: FC = () => {
   }, []);
 
   if (loading) return <Preloader />;
-  if (error) return <h4 className="text-center text-danger">Error fetching top sales</h4>;
+  if (error) return (
+    <h5 className="alert alert-danger text-center" role="alert">
+      Ошибка при получении списка хитов продаж
+    </h5>
+  );
   if (products.length > 0) return (
     <div className="row">
-      {products.map((product) => 
+      {products.map((product) => (
         <ProductCard product={product} key={product.id} />
-      )}
+      ))}
     </div>
   );
 };

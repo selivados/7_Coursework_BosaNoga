@@ -47,7 +47,12 @@ export const Order: FC = () => {
 
   return (
     <section className="order">
-      {success && <h4 className="text-center text-success">Заказ успешно оформлен!</h4>}
+      {success && (
+        <div className="alert alert-success text-center" role="alert">
+          <h5>Ваш заказ принят в обработку</h5>
+          <span>В ближайшее время наш менеджер свяжется с Вами для завершения оформления заказа</span> 
+        </div>
+      )}
       {!success && (
         <>
           <h2 className="text-center">Оформить заказ</h2>
@@ -97,7 +102,11 @@ export const Order: FC = () => {
                 </button>
               )}
               {loading && <Preloader />}
-              {error && <p className="mt-3 text-danger">Ошибка при оформлении заказа. Пожалуйста, попробуйте ещё раз.</p>}
+              {error && (
+                <div className="alert alert-danger text-center mt-3" role="alert">
+                  Произошла ошибка при оформлении заказа.<br/>Пожалуйста, попробуйте ещё раз.
+                </div>
+              )}
             </form>
           </div>
         </>
