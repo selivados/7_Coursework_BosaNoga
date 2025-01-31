@@ -1,5 +1,5 @@
 [Deployed application](https://bosanoga-frontend.onrender.com)\
-[Application backend](https://github.com/freelandos/7_Coursework_BosaNoga_Backend)
+[Application backend](https://github.com/selivados/7_Coursework_BosaNoga_Backend)
 
 # Дипломный проект курса «React»
 
